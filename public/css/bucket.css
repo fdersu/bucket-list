@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+body{
+    background-color: lightskyblue;
+    font-family: 'Pattaya', sans-serif;
+    font-size: 10vh;
+    color: #2e3b4f;
+}
+.navbar{
+    background-color: #3e5882;
+    width: 100vw;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 5% 20% 20% 20% 20% 15%;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    'logo brand accueil . . .';
+    justify-items: left;
+    align-items: center;
+}
+.brand{
+    font-size: 5vh;
+    color:black;
+    grid-area: brand;
+}
+.logo{
+    width: 5vw;
+    grid-area: logo;
+}
+.linkAccueil{
+    font-size: 5vh;
+    color: lightskyblue;
+    text-decoration: none;
+    grid-area: accueil;
+}
+.content{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-align: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+.footer{
+    font-size: 3vh;
+    color:black;
+}
