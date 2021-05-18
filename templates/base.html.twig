@@ -8,13 +8,17 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bucket.css') }}">
 </head>
 <body>
 <div class="navbar">
     <span class="brand">Bucket-List</span>
     <img class="logo" src="{{ asset('img/bucket.png') }}" alt="logo">
-    <a class="linkAccueil" href="{{ path('main_home') }}">Accueil</a>
+    <a class="linkHome" href="{{ path('main_home') }}">Home</a>
+    <a class="linkList" href="{{ path('wish_list') }}">List</a>
+    <a class="linkAbout" href="{{ path('main_about') }}">About Us</a>
 </div>
 
 <div class="content">{% block content %}{% endblock %}</div>
