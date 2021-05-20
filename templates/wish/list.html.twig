@@ -1,2 +1,65 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}Wishing List{% endblock %}
+
+{% block fonts %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {% set i = 0 %}
+{% for wish in wishes %}
+    {% set i = i + 1 %}
+    <div><a class="link" href="{{ path('wish_detail', {id: wish.id}) }}">{{ wish.title }}</a></div>
+    {% endfor %}
+{%  endblock %}
+
+{% block pagination %}
+    <div id="gridPages">
+        {% if currentPage > 1 %}
+        <a class ="previous" href="{{ path('wish_list', {page: currentPage - 1}) }}"><-</a>
+        {% endif %}
+        {% for nb in array %}
+            <a class="pages" href="{{ path('wish_list', {page: nb }) }}">{{ nb }}</a>
+        {% endfor %}
+        {% if currentPage < pageNb %}
+        <a class="next" href="{{ path('wish_list', {page: currentPage + 1}) }}">-></a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block style %}
+    <style type="text/css">
+        .content{
+            font-family: 'Courgette', cursive;
+            font-size: 7vh;
+            text-shadow: 1px 1px 5px black;
+            text-align: center;
+        }
+        .content a{
+            text-decoration: none;
+            color: #c24106;
+        }
+        .content a:hover{
+            text-shadow: 1px 1px 5px #c2ffff;
+        }
+        .previous{
+            grid-area: previous;
+        }
+        .next{
+            grid-area: next;
+        }
+        #gridPages a{
+            text-decoration: none;
+            color: #3e5882;
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block js %}
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/paginationGrid.js') }}"></script>
+{% endblock %}

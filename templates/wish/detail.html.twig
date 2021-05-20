@@ -1,2 +1,45 @@
 {% extends 'base.html.twig' %}
 {% block title %}Details{% endblock %}
+{% block fonts %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+<div class="title">{{ wish.title }}</div>
+    <div class="small">{{ wish.description }}</div>
+    <div class="smaller">{{ wish.author }}</div>
+    <div class="smaller">{{ wish.dateCreated|date('d-m-y') }}</div>
+{% endblock %}
+{%  block style %}
+    <style type="text/css">
+        .content{
+            font-family: 'Nothing You Could Do', cursive;
+            font-size: 10vh;
+            color: #0c0266;
+        }
+        .title{
+            color: #c24106;
+            text-shadow: 1px 1px 5px black;
+            text-align: center;
+        }
+        .small{
+            font-size: 7vh;
+        }
+        .smaller{
+            font-size: 5vh;
+            color: black;
+        }
+        .flash{
+            font-family: 'Courgette', cursive;
+            font-size: 3vh;
+            color: #3e5882;
+        }
+    </style>
+{% endblock %}

@@ -11,19 +11,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bucket.css') }}">
+    {% block fonts %}{% endblock %}
 </head>
 <body>
-<div class="navbar">
+<div class="navbar" id="navbar">
     <span class="brand">Bucket-List</span>
     <img class="logo" src="{{ asset('img/bucket.png') }}" alt="logo">
     <a class="linkHome" href="{{ path('main_home') }}">Home</a>
-    <a class="linkList" href="{{ path('wish_list') }}">List</a>
+    <a class="linkList" href="{{ path('wish_list', {page: 1}) }}">List</a>
+    <a class="linkAdd" href="{{ path('wish_addWish') }}">Add a Wish</a>
     <a class="linkAbout" href="{{ path('main_about') }}">About Us</a>
 </div>
 
 <div class="content">{% block content %}{% endblock %}</div>
 
+<div class="pagination">{% block pagination %}{% endblock %}</div>
 
 <footer class="footer">@Bucket-list {{ "now"|date('Y') }} </footer>
+{% block style %}{% endblock %}
+{% block js %}{% endblock %}
 </body>
 </html>

@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+{% block fonts %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@1,300&display=swap" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    {{ form_start(form, {'attr': {'class': 'form'}}) }}
+    <div class="titleLabel">{{ form_label(form.title) }}</div>
+    <div class="titleField">{{ form_widget(form.title, {'attr': {'class': 'field'}}) }}</div>
+    <div class="descLabel">{{ form_label(form.description) }}</div>
+    <div class="descField">{{ form_widget(form.description, {'attr': {'class': 'desc'}}) }}</div>
+    <div class="authorLabel">{{ form_label(form.author) }}</div>
+    <div class="authorField">{{ form_widget(form.author, {'attr': {'class': 'field'}}) }}</div>
+    <button class="button">Add a Wish</button>
+    {{ form_end(form) }}
+{% endblock %}
+{% block style %}
+    <style type="text/css">
+        .content{
+            font-family: 'Indie Flower', cursive;
+            font-size: 5vh;
+            color: black;
+        }
+        .form{
+            width: 70vw;
+            height: 40vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            row-gap: 3vh;
+            grid-template-areas:
+            'titleLabel titleField'
+            'descLabel descField'
+            'authorLabel authorField'
+            'ajouter ajouter';
+            justify-items: center;
+            align-items: center;
+        }
+        .titleLabel{
+            grid-area: titleLabel;
+        }
+        .titleField{
+            grid-area: titleField;
+        }
+        .descLabel{
+            grid-area: descLabel;
+        }
+        .descField{
+            grid-area: descField;
+        }
+        .authorLabel{
+            grid-area: authorLabel;
+        }
+        .authorField{
+            grid-area: authorField;
+        }
+        .button{
+            grid-area: ajouter;
+            width: 10vw;
+            height: 4vh;
+            background-color: #002c8a;
+            border-radius: 2vw;
+            border-color: #c70000;
+            font-family: 'KoHo', sans-serif;
+            font-size: 3vh;
+            color: #11d61b;
+        }
+        .button:hover{
+            cursor: pointer;
+        }
+        .field{
+            width: 30vw;
+            height: 6vh;
+            background-color: #293236;
+            border-radius: 2vw;
+            border-color: #c70000;
+            text-align: center;
+            font-family: 'KoHo', sans-serif;
+            font-size: 3vh;
+            color: #87daff;
+        }
+        .desc{
+            width: 30vw;
+            height: 20vh;
+            background-color: #293236;
+            border-radius: 2vw;
+            border-color: #c70000;
+            text-align: center;
+            font-family: 'KoHo', sans-serif;
+            font-size: 3vh;
+            color: #87daff;
+        }
+    </style>
+{% endblock %}
